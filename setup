@@ -7,3 +7,4 @@ sudo apt-get install -y autoconf automake libtool checkinstall
 autoreconf --verbose --install --force
 ./configure
 make
+make package
