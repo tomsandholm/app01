@@ -11,14 +11,6 @@ pipeline {
     CAUSE = "${currentBuild.getBuildCauses()[0].shortDescription}"
   }
 
-  parameters {
-    string (
-        description: 'Tag Override Value',
-        name: 'tagovr',
-        defaultValue: ''
-    )
-  }
-
   stages {
 
     stage('checkout') {
@@ -51,33 +43,10 @@ pipeline {
 		  echo "Build caused by ${env.CAUSE}"
       }	
 	}
-    
-    stage('tag') {
-        steps {
-            script {
-                if ( params.tagovr != '' ) {
-                    def TAGSTRING = "${params.tagovr}"
-                    echo "##### Tag OVERRIDE is applied"
-                    echo "##### Tag: $TAGSTRING"
-                    sh "make -e STAG=$TAGSTRING stag"
-                } else {
-                    sh 'make stag'
-                }
-            }
-        }
-    }
-
-    stage('tag push') {
-      steps {
-        sh """
-          make stagpush
-        """
-      }
-    }
   }
   post {
     always {
-      archiveArtifacts artifacts: 'sub*.deb', onlyIfSuccessful: true
+      archiveArtifacts artifacts: 'app*.deb', onlyIfSuccessful: true
       step([$class: 'WsCleanup'])
     }
   }
