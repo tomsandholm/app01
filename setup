@@ -1,0 +1,9 @@
+#! /bin/bash
+# vi:set nu ai ap aw smd showmatch tabstop=4 shiftwidth=4:
+
+# install necessary tools
+sudo apt-get install -y autoconf automake libtool checkinstall
+
+autoreconf --verbose --install --force
+./configure
+make
