@@ -6,3 +6,5 @@ package:
 
 clean-local:
 	sudo checkinstall uninstall $(bin_PROGRAMS)
+
+
