@@ -21,7 +21,7 @@ pipeline {
     stage('setup') {
       steps {
         sh """
-		  sudo apt-get install -y autoconf automake libtool checkinstall
+          sudo apt-get install -y autoconf automake libtool checkinstall
           autoreconf --verbose --install --force
           ./configure
         """
