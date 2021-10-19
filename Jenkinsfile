@@ -8,6 +8,7 @@ pipeline {
 
   environment {
     CAUSE = "${currentBuild.getBuildCauses()[0].shortDescription}"
+	BUILD_BRANCH = "release/R5.0.x"
   }
 
   stages {
@@ -41,6 +42,11 @@ pipeline {
 	stage('check parent') {
 	  steps {
 		  echo "Build caused by ${env.CAUSE}"
+		  echo "BUILD_BRANCH: ${env.BUILD_BRANCH}"
+		  script {
+		    sh (script: "echo ${env.BUILD_BRANCH}", label: "env BUILD_BRANCH")
+		    sh (script: "echo ${BUILD_BRANCH}", label: "BUILD_BRANCH")
+          }
       }	
 	}
   }
