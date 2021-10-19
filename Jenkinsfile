@@ -43,6 +43,7 @@ pipeline {
 	  steps {
 		  echo "Build caused by ${env.CAUSE}"
 		  echo "BUILD_BRANCH: ${env.BUILD_BRANCH}"
+		  echo "BUILD_BRANCH: ${BUILD_BRANCH}"
 		  script {
 		    sh (script: "echo ${env.BUILD_BRANCH}", label: "env BUILD_BRANCH")
 		    sh (script: "echo ${BUILD_BRANCH}", label: "BUILD_BRANCH")
