@@ -16,7 +16,7 @@ pipeline {
     stage('checkout') {
       steps {
         checkout scm
-		buildDescription 'test build'
+		buildDescription "branch is ${env.BRANCH_NAME}"
       }
     }
 
