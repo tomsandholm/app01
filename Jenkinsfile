@@ -9,13 +9,13 @@ pipeline {
   environment {
     CAUSE = "${currentBuild.getBuildCauses()[0].shortDescription}"
 	BUILD_BRANCH = "release/R5.0.x"
+	GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
   }
 
   stages {
 
     stage('checkout') {
       steps {
-	    env.GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
         checkout scm
 		buildDescription "repo is ${env.GIT_REPO_NAME}"
       }
