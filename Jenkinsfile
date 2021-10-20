@@ -10,7 +10,8 @@ pipeline {
     CAUSE = "${currentBuild.getBuildCauses()[0].shortDescription}"
 	BUILD_BRANCH = "release/R5.0.x"
 	GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
-	GIT_BRANCH_NAME = "${GIT_BRANCH.split("/")[1]}"
+	// GIT_BRANCH_NAME = "${GIT_BRANCH.split("/")[1]}"
+	GIT_BRANCH_NAME = "${GIT_BRANCH.split('/').size() >1 ? GIT_BRANCH.split('/')[1..-1].join('/') : GIT_BRANCH}"
   }
 
   stages {
