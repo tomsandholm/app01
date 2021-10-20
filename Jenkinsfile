@@ -15,8 +15,9 @@ pipeline {
 
     stage('checkout') {
       steps {
+	    env.GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
         checkout scm
-		buildDescription "branch is ${env.BRANCH_NAME}"
+		buildDescription "repo is ${env.GIT_REPO_NAME}"
       }
     }
 
