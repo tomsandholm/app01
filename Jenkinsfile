@@ -16,6 +16,7 @@ pipeline {
     stage('checkout') {
       steps {
         checkout scm
+		buildDescription 'this is a test'
       }
     }
 
