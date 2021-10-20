@@ -44,6 +44,7 @@ pipeline {
 	stage('check parent') {
 	  steps {
 		  echo "Build caused by ${env.CAUSE}"
+		  echo 'use single quotes Build caused by ${env.CAUSE}'
       }	
 	}
   }
