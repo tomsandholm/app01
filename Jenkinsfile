@@ -18,7 +18,7 @@ pipeline {
     stage('checkout') {
       steps {
         checkout scm
-		buildDescription "repo is ${env.GIT_REPO_NAME} branch is ${env.GIT_BRANCH_NAME}"
+		buildDescription "repo: ${env.GIT_REPO_NAME}  branch: ${env.GIT_BRANCH_NAME}"
       }
     }
 
