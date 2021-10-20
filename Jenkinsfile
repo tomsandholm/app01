@@ -1,9 +1,5 @@
 // vi:set nu ai ap aw smd showmatch tabstop=4 shiftwidth=4: 
 
-def getGitBranchName() {
-  return scm.branches[0].name
-}
-
 pipeline {
   agent any
   options {
@@ -14,7 +10,7 @@ pipeline {
     CAUSE = "${currentBuild.getBuildCauses()[0].shortDescription}"
 	BUILD_BRANCH = "release/R5.0.x"
 	GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
-	GIT_BRANCH_NAME = getGitBranchName()
+	GIT_BRANCH_NAME = "${GIT_BRANCH.split("/")[1]}"
   }
 
   stages {
