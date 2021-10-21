@@ -1,4 +1,5 @@
 // vi:set nu ai ap aw smd showmatch tabstop=4 shiftwidth=4: 
+@Library('sayHello')_
 
 pipeline {
   agent any
