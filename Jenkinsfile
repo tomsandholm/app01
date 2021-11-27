@@ -7,7 +7,7 @@ def sayHello(String name = 'human') {
 }
 
 pipeline {
-  agent beast4
+  agent { label 'beast4' }
   options {
     timestamps();
   }
