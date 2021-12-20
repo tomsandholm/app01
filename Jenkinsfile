@@ -53,6 +53,10 @@ pipeline {
 		  echo 'use single quotes Build caused by ${env.CAUSE}'
 		  sayHello 'Thomas'
 		  helloWorld 'this is from the jenkins-shared-library'
+		  sh """
+		    x=$(date)
+			echo $x
+			"""
       }	
 	}
   }
