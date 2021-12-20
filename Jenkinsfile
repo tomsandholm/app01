@@ -56,6 +56,7 @@ pipeline {
 		  sh '''
 		    x=$(date)
 			echo $x
+			echo ${GIT_REPO_NAME}
 			'''
       }	
 	}
