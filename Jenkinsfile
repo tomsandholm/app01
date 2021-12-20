@@ -54,7 +54,7 @@ pipeline {
 		  sayHello 'Thomas'
 		  helloWorld 'this is from the jenkins-shared-library'
 		  sh """
-		    x=$(date)
+		    x=\$(date)
 			echo $x
 			"""
       }	
