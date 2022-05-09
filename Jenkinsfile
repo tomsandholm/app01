@@ -1,6 +1,6 @@
 // vi:set nu ai ap aw smd showmatch tabstop=4 shiftwidth=4: 
 
-library 'jenkins-shared-library'
+@library('jenkins-shared-library') _
 
 def sayHello(String name = 'human') {
   echo "Hello, ${name}"
