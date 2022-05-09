@@ -54,7 +54,7 @@ pipeline {
 		  helloWorld 'this is from the jenkins-shared-library'
 		  echo "call printargs.groovy"
 		  def ARGS = ["one", "two", "three"]
-		  printargs ${ARGS}
+		  printargs ARGS
 		  sh '''
 		    x=$(date)
 			echo $x
