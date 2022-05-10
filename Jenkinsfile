@@ -54,7 +54,7 @@ pipeline {
 		  helloWorld 'this is from the jenkins-shared-library'
 		  echo "call printargs.groovy"
 		  script {
-		  artifacts = ["one","two","three"]
+		  artifacts = ["one","two","three","four","five"]
 		  printargs artifacts as String[]
 		  }
 		  sh '''
