@@ -55,7 +55,7 @@ pipeline {
 		  echo "call printargs.groovy"
 		  script {
 		  artifacts = ["one","two","three"]
-		  printargs(["a","b","c"] as String[])
+		  printargs(artifacts as String[])
 		  }
 		  sh '''
 		    x=$(date)
