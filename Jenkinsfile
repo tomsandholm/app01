@@ -53,8 +53,8 @@ pipeline {
 		  sayHello 'Thomas'
 		  helloWorld 'this is from the jenkins-shared-library'
 		  echo "call printargs.groovy"
-		  def ARGS = ['one','two','three']
 		  script {
+		  def ARGS = ['one','two','three']
 		  printargs ${env.ARGS}
 		  }
 		  sh '''
