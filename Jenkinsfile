@@ -16,7 +16,6 @@ pipeline {
     CAUSE = "${currentBuild.getBuildCauses()[0].shortDescription}"
 	GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
 	GIT_BRANCH_NAME = "${GIT_BRANCH.split('/').size() >1 ? GIT_BRANCH.split('/')[1..-1].join('/') : GIT_BRANCH}"
-	ARGS = ["one", "two", "three"]
   }
 
   stages {
@@ -54,6 +53,7 @@ pipeline {
 		  sayHello 'Thomas'
 		  helloWorld 'this is from the jenkins-shared-library'
 		  echo "call printargs.groovy"
+		  def ARGS = ["one","two","three"]
 		  printargs ${env.ARGS}
 		  sh '''
 		    x=$(date)
