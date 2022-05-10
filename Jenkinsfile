@@ -55,7 +55,7 @@ pipeline {
 		  echo "call printargs.groovy"
 		  script {
 		  def ARGS = ['one','two','three']
-		  printargs ${env.ARGS}
+		  printargs "${env.ARGS}"
 		  }
 		  sh '''
 		    x=$(date)
