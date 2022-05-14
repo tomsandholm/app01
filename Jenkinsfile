@@ -2,6 +2,33 @@
 
 @Library('jenkins-shared-library') _
 
+properties([
+  parameters([
+    [
+      $class: 'ChoiceParameter',
+      choiceType: 'PT_SINGLE_SELECT',
+      name: 'Environment',
+      script: [
+        $class: 'ScriptlerScript',
+        scriptlerScriptId:'Environments.groovy'
+      ]
+    ],
+    [
+      $class: 'CascadeChoiceParameter',
+      choiceType: 'PT_SINGLE_SELECT',
+      name: 'Host',
+      referencedParameters: 'Environment',
+      script: [
+        $class: 'ScriptlerScript',
+        scriptlerScriptId:'HostsInEnv.groovy',
+        parameters: [
+          [name:'Environment', value: '$Environment']
+        ]
+      ]
+   ]
+ ])
+])
+
 def sayHello(String name = 'human') {
   echo "Hello, ${name}"
 }
@@ -10,16 +37,6 @@ pipeline {
   agent { label 'jenkins01' }
   options {
     timestamps();
-  }
-  parameters {
-    activeChoiceParam('choice1') {
-	  description('select your choice')
-	  choiceType('RADIO')
-	  groovyScript {
-	    script("return ['aaa','bbb']")
-		fallbackScript('return ["error"]')
-	  }
-	}
   }
 
   environment {
