@@ -16,7 +16,7 @@ pipeline {
 	  description('select your choice')
 	  choiceType('RADIO')
 	  groovyScript {
-	    script("return['aaa','bbb'])
+	    script("return ['aaa','bbb']")
 		fallbackScript('return ["error"]')
 	  }
 	}
