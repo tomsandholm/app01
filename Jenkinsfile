@@ -11,6 +11,16 @@ pipeline {
   options {
     timestamps();
   }
+  parameters {
+    activeChoiceParam('choice1') {
+	  description('select your choice')
+	  choiceType('RADIO')
+	  groovyScript {
+	    script("return['aaa','bbb'])
+		fallbackScript('return ["error"]')
+	  }
+	}
+  }
 
   environment {
     CAUSE = "${currentBuild.getBuildCauses()[0].shortDescription}"
