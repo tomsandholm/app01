@@ -46,7 +46,7 @@ pipeline {
   }
 
   stages {
-    stage('build'){
+    stage('prebuild'){
 	  steps {
 	    echo "${params.Environment}"
 		echo "${params.Host}"
