@@ -46,6 +46,12 @@ pipeline {
   }
 
   stages {
+    stage('build'){
+	  steps {
+	    echo "${params.Environment}"
+		echo "${params.Host}"
+	  }
+	}
 
     stage('checkout') {
       steps {
