@@ -10,7 +10,7 @@ properties([
       name: 'Environment',
       script: [
         $class: 'ScriptlerScript',
-        scriptlerScriptId:'environs.groovy'
+        scriptlerScriptId:'Environments.groovy'
       ]
     ],
     [
