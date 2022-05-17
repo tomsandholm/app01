@@ -96,7 +96,7 @@ pipeline {
 			echo ${GIT_REPO_NAME}
 			'''
 		  script {
-          args = [ "tagvalue", $BUILD_BRANCH, "urlvalue" ]
+          args = [ "tagvalue", BUILD_NAME, "urlvalue" ]
 		  tom args as String[]
 		  }
       }	
