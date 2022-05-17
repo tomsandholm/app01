@@ -97,7 +97,7 @@ pipeline {
 			'''
 		  script {
           args = [ "tagvalue", "releasevalue", "urlvalue" ]
-		  tom(args)
+		  tom args as String[]
 		  }
       }	
 	}
