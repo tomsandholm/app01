@@ -95,6 +95,8 @@ pipeline {
 			echo $x
 			echo ${GIT_REPO_NAME}
 			'''
+          args = [ "tagvalue", "releasevalue", "urlvalue" ]
+		  tom(args)
       }	
 	}
   }
