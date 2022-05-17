@@ -96,7 +96,9 @@ pipeline {
 			echo ${GIT_REPO_NAME}
 			'''
 		  script {
-          args = [ "tagvalue", "${env.BRANCH_NAME}", "urlvalue" ]
+		    env.DCO_TAG = "123-456"
+		    env.URLVAL = "http://tom.sand.org"
+          args = [ "${env.DCO_TAG}", "${env.BRANCH_NAME}", "${env.URLVAL}" ]
 		  tom args as String[]
 		  }
       }	
