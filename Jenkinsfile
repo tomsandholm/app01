@@ -43,6 +43,8 @@ pipeline {
     CAUSE = "${currentBuild.getBuildCauses()[0].shortDescription}"
 	GIT_REPO_NAME = env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')
 	GIT_BRANCH_NAME = "${GIT_BRANCH.split('/').size() >1 ? GIT_BRANCH.split('/')[1..-1].join('/') : GIT_BRANCH}"
+	DCO_TAG = "123-456"
+	URLVAL = "http://tom.sand.org"
   }
 
   stages {
@@ -96,10 +98,8 @@ pipeline {
 			echo ${GIT_REPO_NAME}
 			'''
 		  script {
-		    env.DCO_TAG = "123-456"
-		    env.URLVAL = "http://tom.sand.org"
-          args = [ "${env.DCO_TAG}", "${env.BRANCH_NAME}", "${env.URLVAL}" ]
-		  tom args as String[]
+            args = [ "${env.DCO_TAG}", "${env.BRANCH_NAME}", "${env.URLVAL}" ]
+		    tom args as String[]
 		  }
       }	
 	}
